@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.set h2{
+    padding: 10px 50px 10px 20px;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+
+.Get input{
+padding: 10px 10px 10px 10px;
+}
+
+
+
+
+
+
+
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+  /* NAVBAR  */
+
+  /* .navbar{
+    display: flex;
+    background-color: beige;
+  }
+.container{
+     
+    font-size: 22px;
+    font-weight: 400px;
+    padding-left: 30px;
+    padding-bottom: 90px;
+}
+
+
+.set h2{
+    padding: 30px 10px  10px 10px;
+}
+
+.cards img{
+    padding: 10px 10px 30px 80px; */
+    /* padding-bottom: 80px; */
+    /* margin-bottom: 100px; */
+    /* padding: 200px 0px 10px 10px;
+    padding-right: 300px;
+    border-radius: 50px;
+}
+
+.Get input{ */
+    /* padding:10px 10px 10px 10px; */
+    /* margin: 10px;
+    padding:10px 10px 10px 10px ;
+}
+
+.Get button{ */
+    /* padding:10px 10px 10px 10px; */
+    /* margin: 20px;
+    padding:10px 10px 10px 10px ;
+    color: silver;
+    border-radius: 10px;
+}
+
+.Get span{
+    padding-left: 20px;
+    font-size: 22px;
+}
+.Get{
+    background-color: whitesmoke;
+    padding: 150px 10px 10px 10px;
+    padding-left: -50px;
+
+}
+.Get h3{
+    font-size: 22px ;
+    font-weight: 400;
+    padding-bottom: 30px;
+    gap: 30px;
+}
+.Get p{
+    font-size: 16px;
+    font-weight: 400px;
+    padding-bottom: 20px; */
+/* } */

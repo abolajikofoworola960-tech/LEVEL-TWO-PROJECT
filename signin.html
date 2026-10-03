@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SmileyZ  Admin — Sign In</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F6F4EF;
+    font-family: 'Inter', Arial, sans-serif;
+    padding: 16px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .card-header {
+    background: #1C1B19;
+    padding: 32px 32px 28px;
+    text-align: center;
+  }
+
+  .tag-hole {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #F6F4EF;
+    border: 1px solid #DCD6C8;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+    margin: 0 auto 12px;
+  }
+
+  .brand {
+    color: #F6F4EF;
+    font-family: Georgia, 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+
+  .subtitle {
+    color: #B98A3D;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin: 8px 0 0;
+  }
+
+  form {
+    background: #FFFFFF;
+    border: 1px solid #DCD6C8;
+    border-top: none;
+    padding: 32px;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8C8676;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #DCD6C8;
+  }
+
+  .input-wrap input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 15px;
+    color: #1C1B19;
+    font-family: 'Inter', Arial, sans-serif;
+  }
+
+  .input-wrap svg {
+    flex-shrink: 0;
+    color: #9A9484;
+  }
+
+  .toggle-eye {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #9A9484;
+  }
+
+  .row-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0 24px;
+    font-size: 12px;
+    color: #7A7466;
+  }
+
+  .row-between label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .forgot-link {
+    background: none;
+    border: none;
+    color: #B98A3D;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .error-msg {
+    color: #A63A34;
+    font-size: 12px;
+    margin: 0 0 16px;
+    display: none;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: #1C1B19;
+    color: #F6F4EF;
+    border: none;
+    padding: 14px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .footer-text {
+    text-align: center;
+    font-size: 11px;
+    color: #9A9484;
+    margin-top: 20px;
+  }
+
+  /* Welcome / signed-in state */
+  .welcome {
+    display: none;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .welcome p.name {
+    font-family: Georgia, 'Playfair Display', serif;
+    font-size: 24px;
+    color: #1C1B19;
+    margin: 8px 0 4px;
+  }
+
+  .welcome p.sub {
+    color: #7A7466;
+    font-size: 14px;
+    margin: 0 0 24px;
+  }
+
+  .signout-btn {
+    background: images/909375349775977036.jfif;
+    border: 1px solid #DCD6C8;
+    color: #7A7466;
+    padding: 10px 16px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  body{
+    background-image: url(images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+
+  }
+</style>
+</head>
+<body>
+
+  <!-- Sign-in card -->
+   
+  <div class="card" id="signinCard">
+    <div class="card-header">
+      <div class="tag-hole"></div>
+      <p class="brand">SmileyZ</p>
+      <p class="subtitle">Admin Sign In</p>
+    </div>
+
+    <form id="signinForm" novalidate>
+      <div class="field">
+        <label for="username">Username</label>
+        <div class="input-wrap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <input type="text" id="username" name="username" placeholder="e.g. SmileyZ.admin" autocomplete="username" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="input-wrap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" />
+          <button type="button" class="toggle-eye" id="toggleEye" aria-label="Show password">
+            <!-- eye icon (shown when password hidden) -->
+            <svg id="eyeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            <!-- eye-off icon (shown when password visible) -->
+            <svg id="eyeOffIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+              <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 11 7 11 7a13.16 13.16 0 0 1-1.67 2.68"/>
+              <path d="M6.61 6.61A13.526 13.526 0 0 0 1 12s4 7 11 7a9.74 9.74 0 0 0 5.39-1.61"/>
+              <line x1="2" y1="2" x2="22" y2="22"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <p class="error-msg" id="errorMsg">Enter both your username and password.</p>
+
+      <div class="row-between">
+        <label>
+          <input type="checkbox" id="rememberMe" />
+          Remember me
+        </label>
+        <button type="button" class="forgot-link">Forgot password?</button>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span id="submitLabel">Sign in</span>
+        <svg id="submitArrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </form>
+
+    <p class="footer-text">SmileyZ Admin</p>
+  </div>
+
+  <!-- Welcome / signed-in state -->
+  <div class="card welcome" id="welcomeCard">
+    <div class="tag-hole"></div>
+    <p class="name">Welcome back, <span id="welcomeName"></span>.</p>
+    <p class="sub">You're signed in to Atelier Admin.</p>
+    <button class="signout-btn" id="signoutBtn">Sign out</button>
+  </div>
+
+  <script>
+    const form = document.getElementById('signinForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const toggleEyeBtn = document.getElementById('toggleEye');
+    const eyeIcon = document.getElementById('eyeIcon');
+    const eyeOffIcon = document.getElementById('eyeOffIcon');
+    const errorMsg = document.getElementById('errorMsg');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitLabel = document.getElementById('submitLabel');
+    const submitArrow = document.getElementById('submitArrow');
+
+    const signinCard = document.getElementById('signinCard');
+    const welcomeCard = document.getElementById('welcomeCard');
+    const welcomeName = document.getElementById('welcomeName');
+    const signoutBtn = document.getElementById('signoutBtn');
+
+    // Toggle password visibility when the eye icon is clicked
+    toggleEyeBtn.addEventListener('click', () => {
+      const isHidden = passwordInput.type === 'password';
+      passwordInput.type = isHidden ? 'text' : 'password';
+      eyeIcon.style.display = isHidden ? 'none' : 'block';
+      eyeOffIcon.style.display = isHidden ? 'block' : 'none';
+      toggleEyeBtn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+    });
+
+    // Handle form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (!username || !password) {
+        errorMsg.style.display = 'block';
+        return;
+      }
+      errorMsg.style.display = 'none';
+
+      // Simulate a sign-in request
+      submitBtn.disabled = true;
+      submitLabel.textContent = 'Signing in…';
+      submitArrow.style.display = 'none';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitLabel.textContent = 'Sign in';
+        submitArrow.style.display = 'block';
+
+        welcomeName.textContent = username;
+        signinCard.style.display = 'none';
+        welcomeCard.style.display = 'block';
+      }, 700);
+    });
+
+    // Sign out returns to the form
+    signoutBtn.addEventListener('click', () => {
+      welcomeCard.style.display = 'none';
+      signinCard.style.display = 'block';
+      form.reset();
+      // reset password field back to hidden state
+      passwordInput.type = 'password';
+      eyeIcon.style.display = 'block';
+      eyeOffIcon.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
